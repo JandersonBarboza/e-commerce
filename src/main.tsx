@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { AppRouter } from "./pages/routes/AppRoutes.routes.tsx";
+import { AppRouter } from "./routes/AppRoutes.routes.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

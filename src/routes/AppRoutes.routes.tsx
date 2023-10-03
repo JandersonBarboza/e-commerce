@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { Home } from "../Home/Home";
-import { Checkout } from "../Checkout/Checkout";
+import { Home } from "../pages/Home/Home";
+import { Checkout } from "../pages/Checkout/Checkout";
 
 import { Layout } from "antd";
-import { ProductList } from "../Products/ProductList";
-import { CheckoutButton, CheckoutModal } from "../../components/CheckoutModal/CheckoutModal";
-import { UserButton, UserModal } from "../../components/UserModal/UserModal";
+import { ProductList } from "../pages/Products/ProductList";
+import { CheckoutButton, CheckoutModal } from "../components/CheckoutModal/CheckoutModal";
+import { UserButton, UserModal } from "../components/UserModal/UserModal";
 import { useState } from "react";
 
 const HeaderStyle = {
