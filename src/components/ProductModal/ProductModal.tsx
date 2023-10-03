@@ -1,6 +1,6 @@
 import { Modal } from "antd";
 interface ProductModalProps {
-  open: boolean;
+  openModal: boolean;
   closeModal: () => void;
 }
 
@@ -8,9 +8,10 @@ export function ProductModal(props: ProductModalProps) {
   return (
     <>
       <Modal
-        open={props.open}
+        open={props.openModal}
         onCancel={props.closeModal}
         width={1000}
+        title="Produto"
       >
       </Modal>
     </>

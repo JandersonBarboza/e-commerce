@@ -4,8 +4,9 @@ import { Checkout } from "../Checkout/Checkout";
 
 import { Layout } from "antd";
 import { ProductList } from "../Products/ProductList";
-import { CheckoutButton } from "../../components/CheckoutModal/CheckoutModal";
-import { UserButton } from "../../components/UserModal/UserModal";
+import { CheckoutButton, CheckoutModal } from "../../components/CheckoutModal/CheckoutModal";
+import { UserButton, UserModal } from "../../components/UserModal/UserModal";
+import { useState } from "react";
 
 const HeaderStyle = {
   display: "flex",
@@ -36,32 +37,50 @@ const FooterStyle = {
 }
 
 export function AppRouter() {
+  const [openCheckout, setOpenChekout] = useState<boolean>(false);
+  const [openUser, setOpenUser] = useState<boolean>(false);
+
+  function openCheckoutModal() {
+    setOpenChekout(true);
+  }
+
+  function closeCheckoutModal() {
+    setOpenChekout(false);
+  }
+
+  function openUserModal() {
+    setOpenUser(true);
+  }
+
+  function closeUserModal() {
+    setOpenUser(false);
+  }
   return (
     <BrowserRouter>
       <Layout>
         <Layout.Header style={HeaderStyle} >
           <div style={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
             <div />
-            <Link to="/" style={{ color: "white" }}>Sistema e-Commerce</Link>
+            <Link to="/" style={{ color: "white", fontSize: 24 }}>Sistema e-Commerce</Link>
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 8 }}>
-              <CheckoutButton />
-              <UserButton />
+              <CheckoutButton openModal={openCheckoutModal} />
+              <UserButton openModal={openUserModal} />
             </div>
           </div>
         </Layout.Header>
         <Layout.Content style={ContentStyle}>
-
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<ProductList />} />
             <Route path="/checkout" element={<Checkout />} />
           </Routes>
-
         </Layout.Content>
         <Layout.Footer style={FooterStyle}>
-          <span style={{ margin: "0 4px", color: "#000" }}>JanDev @2023</span> | <a href="github.com/jandersonbarboza" style={{ margin: "0 4px", color: "#000" }}>Github</a> | <a href="github.com/jandersonbarboza" style={{ margin: "0 4px", color: "#000" }}>Website</a>
+          <span style={{ margin: "0 4px", color: "#000" }}>JanDev @2023</span> | <a href="https://github.com/jandersonbarboza" style={{ margin: "0 4px", color: "#000" }}>Github</a> | <a href="" style={{ margin: "0 4px", color: "#000" }}>Website</a>
         </Layout.Footer>
       </Layout>
+      <CheckoutModal openModal={openCheckout} closeModal={closeCheckoutModal} />
+      <UserModal openModal={openUser} closeModal={closeUserModal} />
     </BrowserRouter>
   );
 }

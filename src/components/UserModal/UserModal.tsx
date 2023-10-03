@@ -2,7 +2,7 @@ import { Button, Modal } from "antd";
 import { UserOutlined } from '@ant-design/icons';
 
 interface UserModalProps {
-    open: boolean;
+    openModal: boolean;
     closeModal: () => void;
 }
 
@@ -10,17 +10,22 @@ export function UserModal(props: UserModalProps) {
     return (
         <>
             <Modal
-                open={props.open}
+                open={props.openModal}
                 onCancel={props.closeModal}
                 width={1000}
+                title="Usuário"
             >
             </Modal>
         </>
     )
 }
 
-export function UserButton() {
+interface UserButtonProps {
+    openModal: () => void;
+}
+
+export function UserButton(props: UserButtonProps) {
     return (
-        <Button shape="circle" style={{ border: "none", display: "flex", justifyContent: "center", alignItems: "center" }} icon={<UserOutlined />} />
+        <Button onClick={props.openModal} shape="circle" style={{ border: "none", display: "flex", justifyContent: "center", alignItems: "center" }} icon={<UserOutlined />} />
     )
 }

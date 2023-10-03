@@ -26,14 +26,16 @@ export function ProductList() {
                   titulo={e.name}
                   imgUrl={e.image}
                   preco={e.price}
+                  peso={e.weight}
                   openModal={openModal}
+                  extra={e.extra}
                 />
               </Col>
             )
           })}
         </Row>
       </div>
-      <ProductModal open={open} closeModal={closeModal} />
+      <ProductModal openModal={open} closeModal={closeModal} />
     </>
   );
 }
