@@ -3,6 +3,7 @@ import { Col, Row } from "antd";
 import { ProductModal } from "../../components/ProductModal/ProductModal";
 import { Product } from "../../components/Product/Product";
 import { FakeDB as dataDB } from "../../database/FakeDB";
+import { Navigation } from "../../components/Navigation/Navigation";
 
 export function ProductList() {
   const [open, setOpen] = useState<boolean>(false);
@@ -17,7 +18,10 @@ export function ProductList() {
 
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "center", gap: 12, height: "85vh", margin: "32px 320px", overflowY: "auto", scrollbarColor: "transparent" }}>
+      <div style={{ padding: "8px 16px", width: "100%", background: "#fff" }}>
+        <Navigation pageName={"Products"}/>
+      </div>
+      <div style={{ display: "flex", justifyContent: "center", gap: 12, height: "80vh", margin: "32px 320px", overflowY: "auto", scrollbarColor: "transparent" }}>
         <Row gutter={[0, 16]}>
           {dataDB.products.map((e, i) => {
             return (

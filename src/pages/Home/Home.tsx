@@ -18,6 +18,9 @@ const bannerStyle = (src: string) => ({
 export function Home() {
   return (
     <div>
+      <div style={{ padding: "8px 16px", width: "100%", background: "#fff" }}>
+        <Navigation pageName={"Home"} />
+      </div>
       <Carousel autoplay>
         {dataDB.banners.map((e, i) => {
           return (
@@ -41,10 +44,6 @@ export function Home() {
           )
         })}
       </Carousel>
-      <div style={{ padding: "8px 16px", width: "100%", background: "#ffab00" }}>
-        <Navigation />
-      </div>
-      {/* <Link to="/products">Lista de Produtos</Link> */}
     </div >
   );
 }
